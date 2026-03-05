@@ -27,7 +27,7 @@ kubectl apply -f cronjob.yml
 ### DaemonSet (`daemonset.yml`)
 
 * **Образ:** `radial/busyboxplus:curl` (містить необхідну утиліту `curl`).
-* **Логіка:** Запускає по одному поду на кожній ноді кластера. Кожні 5 секунд виконується цикл `while true`, який перевіряє доступність `todoapp` через внутрішню мережу кластера (ClusterIP).
+* **Логіка:** Запускає по одному поду на кожній ноді кластера. Кожні 5 секунд виконується цикл  який перевіряє доступність `todoapp` через внутрішню мережу кластера (ClusterIP).
 * **Ресурси:** Встановлено ліміти та реквести для запобігання неконтрольованому споживанню ресурсів системними подами.
 
 ### CronJob (`cronjob.yml`)
@@ -49,7 +49,7 @@ kubectl apply -f cronjob.yml
 
 ```powershell
 # Отримати імена подів DaemonSet
-kubectl get pods -n mateapp -l app=mate-server
+kubectl get pods -n mateapp -l app=todoapp
 
 # Перегляд логів (замініть <pod-name>)
 kubectl logs <pod-name> -n mateapp
